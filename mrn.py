@@ -7,10 +7,10 @@ from urn import Urn
 
 @load_grammar_rules(
     [
-        ('pchar', Uri('pchar')),
-        ('rq-components', Urn('rq-components')),
-        ('f-component', Urn('f-component')),
-        ('alphanum', Urn('alphanum')),
+        ("pchar", Uri("pchar")),
+        ("rq-components", Urn("rq-components")),
+        ("f-component", Urn("f-component")),
+        ("alphanum", Urn("alphanum")),
     ]
 )
 class Mrn(Rule):
@@ -18,6 +18,6 @@ class Mrn(Rule):
         'mrn = "urn" ":" "mrn" ":" oid ":" oss [rq-components] [ "#" f-component ]',
         'oid = (alphanum) 0*20((alphanum) / "-") (alphanum)',
         'oss = osnid ":" osns',
-        'osnid = (alphanum) 0*20((alphanum) / "-") (alphanum)',
+        'osnid = (alphanum) 0*32((alphanum) / "-") (alphanum)',
         'osns = pchar *(pchar / "/")',
     ]
